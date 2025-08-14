@@ -23,7 +23,7 @@ func NewGothConfig(userService service.UserService) *GothConfig {
 }
 
 func ConfigGoth() {
-
+// Google for signin
 	// clientID := os.Getenv("GOOGLE_CLIENT_ID")
 	// clientSecret := os.Getenv("GOOGLE_CLIENT_SECRET")
 	// clientCallbackURL := os.Getenv("GOOGLE_CLIENT_CALLBACK_URL")
