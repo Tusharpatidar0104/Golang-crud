@@ -11,7 +11,7 @@ import (
 	"github.com/markbates/goth"
 	"github.com/markbates/goth/gothic"
 	"github.com/markbates/goth/providers/github"
-	"github.com/markbates/goth/providers/google"
+	// "github.com/markbates/goth/providers/google"
 )
 
 type GothConfig struct {
@@ -24,20 +24,20 @@ func NewGothConfig(userService service.UserService) *GothConfig {
 
 func ConfigGoth() {
 
-	clientID := os.Getenv("GOOGLE_CLIENT_ID")
-	clientSecret := os.Getenv("GOOGLE_CLIENT_SECRET")
-	clientCallbackURL := os.Getenv("GOOGLE_CLIENT_CALLBACK_URL")
+	// clientID := os.Getenv("GOOGLE_CLIENT_ID")
+	// clientSecret := os.Getenv("GOOGLE_CLIENT_SECRET")
+	// clientCallbackURL := os.Getenv("GOOGLE_CLIENT_CALLBACK_URL")
 
-	if clientID == "" || clientSecret == "" || clientCallbackURL == "" {
-		log.Fatal("Environment variables (CLIENT_ID, CLIENT_SECRET, CLIENT_CALLBACK_URL) are required")
-	}
+	// if clientID == "" || clientSecret == "" || clientCallbackURL == "" {
+	// 	log.Fatal("Environment variables (CLIENT_ID, CLIENT_SECRET, CLIENT_CALLBACK_URL) are required")
+	// }
 
 	githubClientID := os.Getenv("GITHUB_CLIENT_ID")
 	githubClientSecret := os.Getenv("GITHUB_CLIENT_SECRET")
 	githubClientCallbackURL := os.Getenv("GITHUB_CLIENT_CALLBACK_URL")
 
 	goth.UseProviders(
-		google.New(clientID, clientSecret, clientCallbackURL),
+		// google.New(clientID, clientSecret, clientCallbackURL),
 		github.New(githubClientID, githubClientSecret, githubClientCallbackURL),
 	)
 
