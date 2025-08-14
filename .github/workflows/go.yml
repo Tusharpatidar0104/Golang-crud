@@ -1,10 +1,10 @@
-name: Go CI/CD
+name: Go CI
 
 on:
   push:
-    branches: [ main ]
+    branches: [master]
   pull_request:
-    branches: [ main ]
+    branches: [master]
 
 jobs:
   build:
@@ -19,13 +19,14 @@ jobs:
       with:
         go-version: '1.21'
 
-    - name: Install dependencies
+    - name: Download dependencies
       run: go mod tidy
 
-    - name: Build
-      run: go build -v ./...
+    - name: Run build
+      run: go build -o go-app
 
     - name: Run tests
-      run: go test -v ./...
+      run: go test ./...
 
-# Deployment handled by Render's GitHub integration
+    - name: Build Docker Image (Optional)
+      run: docker build -t go-crud-app .
